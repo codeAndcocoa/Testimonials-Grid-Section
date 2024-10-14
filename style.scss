@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600&display=swap");
+$primary1: hsl(263, 55%, 52%); /* Moderate violet  */
+$primary2: hsl(217, 19%, 35%); /* Very dark grayish blue */
+$primary3: hsl(219, 29%, 14%); /* Very dark blackish blue  */
+$primary4: hsl(0, 0%, 100%); /* White  */
+
+$neutral1: hsl(0, 0%, 81%); /* Light gray  */
+$neutral2: hsl(210, 46%, 95%); /* Light grayish blue */
+
+$font-weights: (
+  "bold": 500,
+  "bolder": 600,
+);
+$persons: (kira, jeanette, patrick, daniel, jonathan);
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $neutral2;
+  font-family: "Rajdhani", system-ui;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+}
+
+.container {
+  width: 65rem;
+  margin: 3rem auto;
+}
+.left-cols {
+  flex: 70%;
+}
+.right-cols {
+  flex: 25%;
+}
+
+// Daniel testimony
+.daniel-testimonial {
+  background-color: $primary1;
+  .testimony {
+    color: $neutral2;
+    z-index: 1;
+    position: relative;
+  }
+  .data {
+    margin-left: 1rem;
+    span:first-child {
+      color: $neutral1;
+    }
+    span:last-child {
+      color: hsl(0, 0%, 81%, 0.5);
+    }
+  }
+  blockquote {
+    color: hsl(0, 0%, 81%, 0.7);
+  }
+  img {
+    z-index: 0;
+    right: 5rem;
+    top: 0;
+  }
+}
+
+// Jonathan testimony
+.jonathan-testimonial {
+  background-color: $primary2;
+  .testimony {
+    color: $neutral2;
+  }
+  .data {
+    margin-left: 1rem;
+
+    span:first-child {
+      color: $neutral1;
+    }
+    span:last-child {
+      color: hsl(0, 0%, 81%, 0.5);
+    }
+  }
+  blockquote {
+    color: hsl(0, 0%, 81%, 0.7);
+  }
+}
+
+// Jeanette testimony
+.jeanette-testimonial {
+  background-color: $primary4;
+  .data {
+    margin-left: 1rem;
+
+    span:first-child {
+      color: $primary2;
+    }
+    span:last-child {
+      color: hsl(217, 19%, 35%, 0.5);
+    }
+  }
+  blockquote {
+    color: hsl(217, 19%, 35%, 0.7);
+  }
+}
+
+// Patrick testimony
+.patrick-testimonial {
+  background-color: $primary3;
+  .testimony {
+    color: $neutral2;
+  }
+  .data {
+    margin-left: 1rem;
+    span:first-child {
+      color: $neutral1;
+    }
+    span:last-child {
+      color: hsl(0, 0%, 81%, 0.5);
+    }
+  }
+  blockquote {
+    color: hsl(0, 0%, 81%, 0.7);
+  }
+}
+
+// Kira testimony
+.kira-testimonial {
+  background-color: $primary4;
+
+  .data {
+    margin-left: 1rem;
+    span:first-child {
+      color: $primary2;
+    }
+    span:last-child {
+      color: hsl(217, 19%, 35%, 0.5);
+    }
+  }
+  blockquote {
+    color: hsl(217, 19%, 35%, 0.7);
+  }
+}
+@each $person in $persons {
+  .#{$person}-testimonial {
+    padding: 1rem;
+    border-radius: 10px;
+    .avatar img {
+      border-radius: 50%;
+      width: 40px;
+      text-align: left;
+    }
+    .testimony {
+      font: {
+        size: 0.813em;
+        weight: bolder;
+      }
+    }
+  }
+  blockquote {
+    color: $neutral1;
+
+    font: {
+      size: 0.813em;
+      weight: bold;
+    }
+  }
+}
+//** Media queries
+@media screen and (width <= 1024px) {
+}
+
+@media screen and (width <= 992px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .container {
+    width: 90%;
+  }
+  .daniel-testimonial {
+    img {
+      width: 70px;
+      right: 2rem;
+    }
+  }
+}
+
+@media screen and (width <= 600px) {
+  .container {
+    width: 95%;
+  }
+  @each $person in $persons {
+    .#{$person}-testimonial {
+      .testimony {
+        font: {
+          size: 1em;
+          weight:bolder;
+        }
+      }
+    }
+    blockquote {
+      font: {
+        size: 1em;
+      }
+    }
+  }
+}
